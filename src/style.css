@@ -19,6 +19,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: rgb(68, 68, 68);
+	font-family: 'Roboto', sans-serif;
 }
 
 textarea,
@@ -240,10 +241,6 @@ helpbutton {
 	font-size: 12px;
 }
 
-em {
-	color: rgb(220, 255, 168);
-	font-weight: italic;
-}
 
 a {
 	color: rgb(167, 167, 255);
@@ -518,6 +515,21 @@ img.magnet.backgroundTransparent {
 
 .tabcontent {
 	padding: 8px;
+}
+
+.warningBox {
+	background-color: #888;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 0px 0px 0px 25px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.warningBox > img {
+	width: 35px;
+	height: 35px;
 }
 
 h2 {
