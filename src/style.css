@@ -2,12 +2,16 @@
 
 :root {
 	--menu-background-color: black;
+	--switch-height: 25px;
+    --switch-width: 46px;
+    --slider-height: calc(var(--switch-height) - 8px);
 }
 
 html {
 	overscroll-behavior-x: none;
 	width: 100%;
 	height: 100%;
+	box-sizing: border-box;
 }
 
 body {
@@ -26,8 +30,8 @@ textarea,
 input {
 	background-color: rgb(47, 47, 47);
 	color: oldlace;
-	border: 1px solid black;
-	padding: 8px;
+	border: none;
+	padding: 10px;
 }
 
 input[type="color"] {
@@ -532,13 +536,82 @@ img.magnet.backgroundTransparent {
 	height: 35px;
 }
 
+.shareSection {
+	background-color: #666;
+	padding: 10px;
+	border-radius: 5px;
+	max-width: 500px;
+}
+
+.optionsGrid {
+	display: grid;
+	row-gap: 10px;
+	column-gap: 15px;
+	grid-template-columns: max-content 1fr;
+	width: 100%;
+}
+
+.optionsGrid > span {
+	display: flex;
+	align-items: center;
+}
+.actionButton {
+	width: 100%;
+	margin-top: 10px;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: var(--switch-width);
+    height: var(--switch-height);
+  }
+  
+.switch input {
+    display:none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2f2f2f;
+    border-radius: calc(var(--switch-height) / 2);
+ }
+
+ .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--slider-height);
+    width: var(--slider-height);
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform .1s;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+ }
+
+ input:checked+.slider {
+    background-color: #93e08c;
+ }
+
+ input:checked+.slider:before {
+    transform: translateX(calc(var(--slider-height) + 4px));
+ }
+
+ .slider:before {
+    border-radius: 50%;
+ }
+
 h2 {
 	margin: 4px;
 	margin-top: 48px;
 	padding-top: 8px;
 	font-size: 16px;
-	font-family: monospace;
-	/*	border-top: 1px solid white;*/
 }
 
 
@@ -573,12 +646,7 @@ button {
 	border: none;
 	border-radius: 5px;
 	padding: 8px;
-	padding-top: 6px;
-	font-size: 14pt;
-	margin: 4px;
-	outline: none;
 	cursor: pointer;
-	min-width: 48px;
 }
 
 button:hover {
@@ -800,11 +868,6 @@ h1 {
 #shareUrl {
 	width: 500px;
 }
-
-#joinUrl {
-	width: 500px;
-}
-
 
 #msg {
 	top: 0px;
